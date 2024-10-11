@@ -11,6 +11,16 @@ body {
 }
 
 /* Navbar */
+.cart-count {
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    position: relative;
+    font-size: 1.5rem;
+    top: 15px;
+    left: -50px;
+}
+
 .navbar {
     background-color: #4CAF50;
     color: #fff!important;
@@ -40,6 +50,15 @@ body {
 }
 
 /* Product Grid */
+.category-name {
+    font-size: 30px;
+    margin: 20px;
+    border: 1px solid rgb(5, 4, 4);
+    border-left: none;
+    border-right: none;
+    text-align: center;
+}
+
 .product-grid {
     display:flex;
     flex-direction: column;

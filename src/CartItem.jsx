@@ -19,18 +19,39 @@ const CartItem = ({ onContinueShopping }) => {
     
   };
 
+  const handleCheckoutShopping = (e) => {
+    alert('Functionality to be added for future reference');
+  };
+
   const handleIncrement = (item) => {
+    const updatedItem = {
+        ...item,
+        quantity: item.quantity + 1
+      };
+  
+      dispatch(updateQuantity(updatedItem));
   };
 
   const handleDecrement = (item) => {
-   
+    if (item.quantity === 1) {
+        dispatch(removeItem(item));
+      } else {
+        const updatedItem = {
+          ...item,
+          quantity: item.quantity - 1
+        };
+  
+        dispatch(updateQuantity(updatedItem));
+      }
   };
 
   const handleRemove = (item) => {
+    dispatch(removeItem(item.name));
   };
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
+    return parseFloat(item.cost.replace(/[^0-9.-]+/g, "")) * item.quantity;
   };
 
   return (
@@ -56,9 +77,9 @@ const CartItem = ({ onContinueShopping }) => {
       </div>
       <div style={{ marginTop: '20px', color: 'black' }} className='total_cart_amount'></div>
       <div className="continue_shopping_btn">
-        <button className="get-started-button" onClick={handleContinueShopping}>Continue Shopping</button>
+        <button className="get-started-button" onClick={onContinueShopping}>Continue Shopping</button>
         <br />
-        <button className="get-started-button1">Checkout</button>
+        <button className="get-started-button1" onClick={handleCheckoutShopping}>Checkout</button>
       </div>
     </div>
   );
